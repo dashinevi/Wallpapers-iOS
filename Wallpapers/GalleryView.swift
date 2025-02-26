@@ -7,25 +7,36 @@
 import SwiftUI
 
 struct GalleryView: View {
-    let galleryPics = ["Image 1", "Image 2", "Image 3"]
+    @State private var wallpapers: Gallery = []
+    
     
     let columns = [
-            GridItem(.flexible(), spacing: 20),
-            GridItem(.flexible(), spacing: 20)
-        ]
+        GridItem(.flexible(), spacing: 20),
+        GridItem(.flexible(), spacing: 20)
+    ]
     
     var body: some View {
         ScrollView(.vertical, showsIndicators: true) {
             LazyVGrid(columns: columns, spacing: 10) {
-               
-                    ForEach(galleryPics, id: \.self) { imageName in
-                        Image(imageName)
+                ForEach(wallpapers) { wallpaper in
+                    AsyncImage(url: URL(string: wallpaper.thumbnailUrl)) { image in
+                        image
                             .resizable()
                             .scaledToFill()
                             .cornerRadius(20)
+                    } placeholder: {
+                        ProgressView()
                     }
+                }
             }
             .padding()
+            .task {
+                do {
+                    wallpapers = try await getPictures()
+                } catch {
+                    print("Failed to load wallpapers: \(error)")
+                }
+            }
         }
     }
 }
