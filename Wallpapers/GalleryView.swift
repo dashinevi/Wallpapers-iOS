@@ -9,27 +9,31 @@ import SwiftUI
 struct GalleryView: View {
     @State private var wallpapers: Gallery = []
     
-    
     let columns = [
-        GridItem(.flexible(), spacing: 20),
-        GridItem(.flexible(), spacing: 20)
+        GridItem(.flexible(), spacing: 10),
+        GridItem(.flexible(), spacing: 10)
     ]
     
     var body: some View {
-        ScrollView(.vertical, showsIndicators: true) {
-            LazyVGrid(columns: columns, spacing: 10) {
-                ForEach(wallpapers) { wallpaper in
-                    AsyncImage(url: URL(string: wallpaper.thumbnailUrl)) { image in
-                        image
-                            .resizable()
-                            .scaledToFill()
-                            .cornerRadius(20)
-                    } placeholder: {
-                        ProgressView()
+        NavigationStack {
+            ScrollView(.vertical, showsIndicators: true) {
+                LazyVGrid(columns: columns, spacing: 10) {
+                    ForEach(wallpapers) { wallpaper in
+                        NavigationLink(destination: WallpaperPicView(wallpaper: wallpaper)) {
+                            AsyncImage(url: URL(string: wallpaper.thumbnailUrl)) { image in
+                                image
+                                    .resizable()
+                                    .scaledToFill()
+                                    .clipShape(RoundedRectangle(cornerRadius: 20))
+                            } placeholder: {
+                                ProgressView()
+                            }
+                        }
+                        .buttonStyle(PlainButtonStyle())
                     }
                 }
+                .padding(10)
             }
-            .padding()
             .task {
                 do {
                     wallpapers = try await getPictures()
@@ -40,6 +44,7 @@ struct GalleryView: View {
         }
     }
 }
+
 
 #Preview {
     GalleryView()
