@@ -28,9 +28,8 @@ struct TabbarView: View {
     var body: some View {
         ZStack {
             Capsule()
-                .fill(Color.white.opacity(0.9))
+                .fill(Color.black)
                 .strokeBorder(Color.secondary,lineWidth: 0.5)
-                .frame(height: 70)
                 .shadow(radius: 0.5)
                
                 
@@ -39,15 +38,16 @@ struct TabbarView: View {
                 Button(Tab.gallery.icon, systemImage: "photo.on.rectangle.angled") {
                     selectedTab = .gallery
                 }
-                .tint(selectedTab == .gallery ? .primary : .secondary)
+                .tint(selectedTab == .gallery ? .white : .gray)
                 Spacer()
                 Button(Tab.favorites.icon, systemImage: "heart.fill") {
                     selectedTab = .favorites
                 }
-                .tint(selectedTab == .favorites ? .primary : .secondary)
+                .tint(selectedTab == .favorites ? .white : .gray)
                 Spacer()
             }
         }
+        .frame(width: 250, height: 70)
     }
 }
 

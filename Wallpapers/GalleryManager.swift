@@ -7,7 +7,7 @@
 import SwiftUI
 
 func getPictures() async throws -> Gallery {
-    let endpoint = "http://localhost:8080/api/v1/wallpapers"
+    let endpoint = "http://192.168.0.244:8080/api/v1/wallpapers"
     
     guard let url = URL(string: endpoint) else {
         throw WallpaperError.invalidURL
