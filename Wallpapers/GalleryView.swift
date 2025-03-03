@@ -25,29 +25,7 @@ struct GalleryView: View {
     
     var body: some View {
         NavigationStack {
-            VStack {
-                ScrollView(.horizontal, showsIndicators: false) {
-                    HStack {
-                        Button("all") {
-                            selectedTag = nil
-                        }
-                        .padding()
-                        .background(selectedTag == nil ? Color.black : Color.gray.opacity(0.3))
-                        .foregroundColor(.white)
-                        .clipShape(RoundedRectangle(cornerRadius: 20))
-                        
-                        ForEach(uniqueTags(), id: \.self) { tag in
-                            Button(tag) {
-                                selectedTag = tag
-                            }
-                            .padding()
-                            .background(selectedTag == tag ? Color.black : Color.gray.opacity(0.3))
-                            .foregroundColor(.white)
-                            .clipShape(RoundedRectangle(cornerRadius: 20))
-                        }
-                    }
-                    .padding(.horizontal)
-                }
+            ZStack {
                 ScrollView(.vertical, showsIndicators: true) {
                     LazyVGrid(columns: columns, spacing: 10) {
                         ForEach(filteredWallpapers) { wallpaper in
@@ -64,10 +42,36 @@ struct GalleryView: View {
                             .buttonStyle(PlainButtonStyle())
                         }
                     }
-                    .padding(10)
+                    .padding(.vertical, 60)
+                    .padding(.horizontal, 10)
                 }
                 .task {
                     await loadWallpapers()
+                }
+                VStack {
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        HStack {
+                            Button("all") {
+                                selectedTag = nil
+                            }
+                            .padding()
+                            .background(selectedTag == nil ? Color.black : Color.gray)
+                            .foregroundColor(selectedTag == nil ? .white : .secondary)
+                            .clipShape(RoundedRectangle(cornerRadius: 20))
+                            
+                            ForEach(uniqueTags(), id: \.self) { tag in
+                                Button(tag) {
+                                    selectedTag = tag
+                                }
+                                .padding()
+                                .background(selectedTag == tag ? Color.black : Color.gray)
+                                .foregroundColor(selectedTag == tag ? .white : .secondary)
+                                .clipShape(RoundedRectangle(cornerRadius: 20))
+                            }
+                        }
+                        .padding(.horizontal, 10)
+                    }
+                    Spacer()
                 }
             }
         }
