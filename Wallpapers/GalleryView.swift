@@ -55,8 +55,8 @@ struct GalleryView: View {
                                 selectedTag = nil
                             }
                             .padding()
-                            .background(selectedTag == nil ? Color.black : Color.gray)
-                            .foregroundColor(selectedTag == nil ? .white : .secondary)
+                            .background(selectedTag == nil ? Color.black : Color.gray.opacity(0.8))
+                            .foregroundColor(selectedTag == nil ? .white : .black)
                             .clipShape(RoundedRectangle(cornerRadius: 20))
                             
                             ForEach(uniqueTags(), id: \.self) { tag in
@@ -64,8 +64,8 @@ struct GalleryView: View {
                                     selectedTag = tag
                                 }
                                 .padding()
-                                .background(selectedTag == tag ? Color.black : Color.gray)
-                                .foregroundColor(selectedTag == tag ? .white : .secondary)
+                                .background(selectedTag == tag ? Color.black : Color.gray.opacity(0.8))
+                                .foregroundColor(selectedTag == tag ? .white : .black)
                                 .clipShape(RoundedRectangle(cornerRadius: 20))
                             }
                         }
