@@ -14,9 +14,22 @@
 		02881BDF2D6C7F40000AEBA8 /* Wallpapers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wallpapers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		02978DB42D778D8100964949 /* Exceptions for "Wallpapers" folder in "Wallpapers" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 02881BDE2D6C7F40000AEBA8 /* Wallpapers */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		02881BE12D6C7F40000AEBA8 /* Wallpapers */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				02978DB42D778D8100964949 /* Exceptions for "Wallpapers" folder in "Wallpapers" target */,
+			);
 			path = Wallpapers;
 			sourceTree = "<group>";
 		};
@@ -264,6 +277,9 @@
 				DEVELOPMENT_TEAM = FJ34259D2Z;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Wallpapers/Info.plist;
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "We want to save the wallpaper.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "We want to save the wallpaper.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -294,6 +310,9 @@
 				DEVELOPMENT_TEAM = FJ34259D2Z;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Wallpapers/Info.plist;
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "We want to save the wallpaper.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "We want to save the wallpaper.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

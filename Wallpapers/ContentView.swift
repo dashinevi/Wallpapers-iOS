@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var activeTab: Tab = .gallery
+    @StateObject private var favorites = Favorites()
     
     
     var body: some View {
@@ -27,6 +28,7 @@ struct ContentView: View {
                 .padding(.horizontal, 15)
                 .padding(.bottom, 15)
         }
+        .environmentObject(favorites)
         .edgesIgnoringSafeArea(.bottom)
     }
 }
