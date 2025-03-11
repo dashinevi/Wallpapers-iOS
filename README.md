@@ -17,5 +17,7 @@ Wallpaper Catalog is an application that allows users to browse, favorite, and s
 - **Networking**: Uses `URLSession` with async/await to fetch wallpapers from an API.  
 - **Image Handling**: `Kingfisher` library for image loading and caching.  
 - **Local Storage**: `UserDefaults` for saving favorite wallpapers.  
-- **Permissions**: Requests `PHPhotoLibrary` access for saving images.   
+- **Permissions**: Requests `PHPhotoLibrary` access for saving images.
+- **API Usage**: Connects to a locally hosted API using Docker.
+- **Swagger Integration**: Used to upload images to the database.   
 
