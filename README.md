@@ -1,7 +1,10 @@
 # Wallpaper Catalog App
 
-## Overview
+### Overview
 Wallpaper Catalog is an application that allows users to browse, favorite, and save wallpapers to their photo library. 
+
+![wallpaper_catalog](https://github.com/user-attachments/assets/5bb94d01-d05a-4f52-8b81-67752c929ba4)
+
 
 ## Features  
 - Add or remove wallpapers from your favorites.  
